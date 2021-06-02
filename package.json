@@ -6,7 +6,9 @@
   "dependencies": {
     "express": "^4.17.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "parcel": "^2.0.0-beta.2"
+  },
   "scripts": {
     "test": "test",
     "start": "node server.js"
