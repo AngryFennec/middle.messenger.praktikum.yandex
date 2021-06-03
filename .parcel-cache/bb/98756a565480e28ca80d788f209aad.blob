@@ -7,8 +7,7 @@
 <body>
 <div>
     <h1>Hola, que tal?</h1>
-    <div id="root"></div>
 </div>
-<script src="src/index.js"></script>
 </body>
 </html>
+<script src="/index.HASH_REF_1cf92b8ac789bf0c8bd4b6d53ebff041.js"></script>

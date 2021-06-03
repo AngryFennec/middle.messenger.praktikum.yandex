@@ -1,0 +1,3 @@
+var _modulesSum = require('./modules/sum');
+const root = document.querySelector('#root');
+root.textContent = _modulesSum.sum(6, -1).toString();
