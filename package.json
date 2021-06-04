@@ -3,15 +3,18 @@
   "version": "1.0.0",
   "description": "---",
   "dependencies": {
+    "@inventory/parcel-plugin-handlebars": "^1.0.0",
     "express": "^4.17.1"
   },
   "devDependencies": {
+    "@parcel/transformer-sass": "^2.0.0-beta.2",
+    "handlebars": "^4.7.7",
     "parcel": "^2.0.0-beta.2"
   },
   "main": "src/index.js",
   "scripts": {
-    "dev": "./node_modules/.bin/parcel index.html",
-    "build": "./node_modules/.bin/parcel build index.html"
+    "dev": "./node_modules/.bin/parcel static/index.html",
+    "build": "./node_modules/.bin/parcel build static/index.html"
   },
   "repository": {
     "type": "git",

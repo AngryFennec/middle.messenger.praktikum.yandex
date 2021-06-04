@@ -2,9 +2,10 @@ const express = require('express');
 
 const app = express();
 const PORT = 3000;
+const DIST_PATH = '/dist';
 
-app.use(express.static('./'));
+app.use(express.static(`${__dirname}${DIST_PATH}`));
 
 app.listen(PORT, function () {
-  console.log(`Example app listening on port ${PORT}!`);
+  console.log(`App listening on port ${PORT}!`);
 });
