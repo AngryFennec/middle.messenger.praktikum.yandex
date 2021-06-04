@@ -1,0 +1,14 @@
+.auth {
+  background-color: #F4F4F4;
+
+  &__wrapper {
+    background-color: #ffffff;
+  }
+
+  &__btn {
+
+    &:first-child {
+      margin-bottom: 12px;
+    }
+  }
+}

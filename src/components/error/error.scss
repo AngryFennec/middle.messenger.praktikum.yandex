@@ -8,8 +8,6 @@
   }
 
   &__status-code {
-    font-family: Inter;
-    font-style: normal;
     font-weight: bold;
     font-size: 200px;
     line-height: 242px;
@@ -19,8 +17,6 @@
   }
 
   &__text {
-    font-family: Inter;
-    font-style: normal;
     font-weight: 600;
     font-size: 24px;
     line-height: 29px;
@@ -29,20 +25,10 @@
   }
 
   &__link {
-    font-family: Inter;
-    font-style: normal;
     font-weight: 600;
     font-size: 16px;
     line-height: 19px;
     text-align: center;
     color: #7318AB;
-    text-decoration: none;
-    transition: 0.2s;
-
-    &:hover {
-      transition: 0.2s;
-      opacity: 0.7;
-    }
-
   }
 }

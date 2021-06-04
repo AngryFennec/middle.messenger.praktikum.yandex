@@ -1,9 +1,8 @@
-import {render as errorRender} from "../components/error";
+import error from "../components/error";
 const tmpl = [
-  errorRender({
+  error.render({
     statusCode:'500',
   })
 ].join('');
-
 
 document.querySelector('#root').innerHTML = tmpl;

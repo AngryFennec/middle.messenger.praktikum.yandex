@@ -1,3 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
-
-@import "components/error/error.scss";
+@import "scss/global";
+@import "components/error/error";
+@import "components/button/button";
+@import "components/auth/auth";
+@import "components/input/input";
