@@ -1,11 +1,25 @@
 .auth {
   background-color: #F4F4F4;
+  display: flex;
+  justify-content: center;
 
   &__wrapper {
+    align-self: center;
+    max-width: 300px;
+    padding: 16px;
+    margin: 0 auto;
     background-color: #ffffff;
+    filter: drop-shadow(6px 6px 10px rgba(28, 20, 31, 0.1));
   }
 
   &__btn {
+
+    &:first-child {
+      margin-bottom: 12px;
+    }
+  }
+
+  &__input {
 
     &:first-child {
       margin-bottom: 12px;
