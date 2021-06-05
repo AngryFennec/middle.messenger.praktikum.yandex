@@ -4,12 +4,16 @@ body {
   height: 100%;
 }
 
+* {
+  box-sizing: border-box;
+}
 
 a {
   font-family: Inter;
   font-style: normal;
   text-decoration: none;
   transition: 0.2s;
+  cursor: pointer;
 
   &:hover {
     transition: 0.2s;

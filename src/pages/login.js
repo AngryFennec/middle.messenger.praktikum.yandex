@@ -23,6 +23,7 @@ const renderInputs = () => {
     labelText: 'Логин',
     inputType: 'text',
     inputPlaceholder: 'Логин',
+    inputName: 'login',
     inputValue: '',
   }),
     input.render({
@@ -30,6 +31,7 @@ const renderInputs = () => {
       labelText: 'Пароль',
       inputType: 'password',
       inputPlaceholder: 'Пароль',
+      inputName: 'password',
       inputValue: '',
     }),
   ].join('');
