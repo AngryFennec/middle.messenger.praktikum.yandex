@@ -5,12 +5,12 @@ import input from "../components/input";
 const renderButtons = () => {
   return [button.render({
     buttonRoute: 'chatBoard.html',
-    buttonClass: 'auth__btn button--solid',
+    buttonClass: 'button--solid auth__btn',
     buttonText: 'Войти',
   }),
     button.render({
       buttonRoute: 'registration.html',
-      buttonClass: 'auth__btn button--transparent',
+      buttonClass: 'button--transparent auth__btn',
       buttonText: 'Зарегистрироваться',
   })
   ].join('');

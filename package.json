@@ -9,12 +9,16 @@
   "devDependencies": {
     "@parcel/transformer-sass": "^2.0.0-beta.2",
     "handlebars": "^4.7.7",
-    "parcel": "^2.0.0-beta.2"
+    "parcel": "2.0.0-beta.3.1",
+    "parcel-bundler": "^1.12.5",
+    "parcel-plugin-custom-dist-structure": "^1.1.17",
+    "parcel-plugin-static-files-copy": "^2.6.0"
   },
   "scripts": {
     "dev": "npm run clear && parcel ./static/*.html --port 3000",
     "build": "npm run clear && parcel build ./static/*.html --no-source-maps --no-cache --public-url ./",
-    "clear": "rm -rf dist .cache"
+    "clear": "rm -rf dist .cache",
+    "start": "npm run clear && parcel build ./static/*.html --no-source-maps --no-cache --public-url ./ && node ./server.js"
   },
   "repository": {
     "type": "git",
