@@ -2,7 +2,7 @@
 
 Макеты: https://www.figma.com/file/QQo53v0bx8aPmwekENUe0s/sprint_1?node-id=26%3A0
 
-Деплой:
+Деплой: https://focused-northcutt-47751c.netlify.app/
 
 Реквест: https://github.com/AngryFennec/middle.messenger.praktikum.yandex/pull/1
 
