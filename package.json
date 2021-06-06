@@ -4,7 +4,8 @@
   "description": "---",
   "dependencies": {
     "@inventory/parcel-plugin-handlebars": "^1.0.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "src": "^1.1.2"
   },
   "devDependencies": {
     "handlebars": "^4.7.7",

@@ -1,11 +1,12 @@
 import button from "../components/button";
 import registration from "../components/registration";
 import input from "../components/input";
+import registrationEvent from "../js/registration";
 
 const renderButtons = () => {
   return [button.render({
-    buttonRoute: 'chatBoard.html',
-    buttonClass: 'button--solid registration__btn',
+    buttonRoute: 'chat.html',
+    buttonClass: 'button--solid registration__btn registration__btn--enter',
     buttonText: 'Зарегистрироваться',
   }),
     button.render({
@@ -88,3 +89,4 @@ const tmpl = [
 ].join('');
 
 document.querySelector('#root').innerHTML = tmpl;
+registrationEvent.initRegistration();

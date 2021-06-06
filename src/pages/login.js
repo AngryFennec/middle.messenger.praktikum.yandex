@@ -4,8 +4,8 @@ import input from "../components/input";
 
 const renderButtons = () => {
   return [button.render({
-    buttonRoute: 'chatBoard.html',
-    buttonClass: 'button--solid auth__btn',
+    buttonRoute: 'chat.html',
+    buttonClass: 'button--solid auth__btn auth__btn--enter',
     buttonText: 'Войти',
   }),
     button.render({
@@ -48,3 +48,4 @@ const tmpl = [
 ].join('');
 
 document.querySelector('#root').innerHTML = tmpl;
+

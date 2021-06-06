@@ -1,1 +1,4 @@
-console.log('main');
+import login from "./js/login";
+
+login.initLogin();
+
