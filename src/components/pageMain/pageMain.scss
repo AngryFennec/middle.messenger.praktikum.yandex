@@ -1,0 +1,10 @@
+.page-main {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+
+    &--horizontal {
+      flex-direction: row;
+    }
+  }
+}

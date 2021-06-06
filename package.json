@@ -1,0 +1,34 @@
+{
+  "name": "middle.messenger.praktikum.yandex",
+  "version": "1.0.0",
+  "description": "---",
+  "dependencies": {
+    "@inventory/parcel-plugin-handlebars": "^1.0.0",
+    "express": "^4.17.1",
+    "src": "^1.1.2"
+  },
+  "devDependencies": {
+    "handlebars": "^4.7.7",
+    "parcel": "2.0.0-beta.3.1",
+    "parcel-bundler": "^1.12.5",
+    "parcel-plugin-custom-dist-structure": "^1.1.17",
+    "parcel-plugin-static-files-copy": "^2.6.0",
+    "sass": "^1.32.8"
+  },
+  "scripts": {
+    "dev": "npm run clear && parcel ./static/*.html --port 3000",
+    "build": "npm run clear && parcel build ./static/*.html --no-source-maps --no-cache --public-url ./",
+    "clear": "rm -rf dist .cache",
+    "start": "npm run clear && parcel build ./static/*.html --no-source-maps --no-cache --public-url ./ && node ./server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AngryFennec/middle.messenger.praktikum.yandex.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AngryFennec/middle.messenger.praktikum.yandex/issues"
+  },
+  "homepage": "https://github.com/AngryFennec/middle.messenger.praktikum.yandex#readme"
+}
