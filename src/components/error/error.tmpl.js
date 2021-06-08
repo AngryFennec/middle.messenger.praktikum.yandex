@@ -3,5 +3,5 @@ export default `<section class="error">
     <h1 class="error__status-code">{{statusCode}}</h1>
     <p class="error__text">Так бывает</p>
     <a class="error__link link" href="index.html">Вернутся назад</a>
-    </div>
+</div>
 </section>`;

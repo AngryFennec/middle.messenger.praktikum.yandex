@@ -1,4 +1,5 @@
-export default `<section class="registration">
+export default `
+<section class="registration">
   <div class="registration__wrapper">
     <div class="registration__form">
         <h1 class="registration__title">Регистрация</h1>
