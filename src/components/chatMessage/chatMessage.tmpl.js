@@ -3,7 +3,7 @@ export default `
     {{text}}
     <span class="chat__message-time">
         {{#if isReadMessage}} 
-            <img src="../../../static/images/messageRead.svg" alt="read message" 
+            <img src="images/messageRead.svg" alt="read message"> 
         {{/if}}
         {{time}}
     </span>

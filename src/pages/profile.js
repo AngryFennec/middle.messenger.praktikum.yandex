@@ -70,7 +70,7 @@ const renderInputs = () => {
 
 const inputsContent = renderInputs();
 const buttonContent = button.render({
-  buttonRoute: '#',
+  buttonType: 'submit',
   buttonClass: 'button--solid profile__btn',
   buttonText: 'Сохранить',
 });
