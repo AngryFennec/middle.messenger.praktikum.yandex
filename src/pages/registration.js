@@ -5,14 +5,15 @@ import registrationEvent from "../js/registration";
 
 const renderButtons = () => {
   return [button.render({
-    buttonRoute: 'chat.html',
     buttonClass: 'button--solid registration__btn registration__btn--enter',
     buttonText: 'Зарегистрироваться',
+    buttonType: 'submit',
   }),
     button.render({
       buttonRoute: 'login.html',
       buttonClass: 'button--transparent registration__btn',
       buttonText: 'Уже есть аккаунт?',
+      link: true,
     })
   ].join('');
 };

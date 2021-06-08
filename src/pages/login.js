@@ -4,14 +4,15 @@ import input from "../components/input";
 
 const renderButtons = () => {
   return [button.render({
-    buttonRoute: 'chat.html',
     buttonClass: 'button--solid auth__btn auth__btn--enter',
     buttonText: 'Войти',
+    buttonType: 'submit',
   }),
     button.render({
       buttonRoute: 'registration.html',
       buttonClass: 'button--transparent auth__btn',
       buttonText: 'Зарегистрироваться',
+      link: true,
   })
   ].join('');
 };
