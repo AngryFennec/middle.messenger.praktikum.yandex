@@ -1,0 +1,50 @@
+body {
+  font-family: Inter;
+  font-style: normal;
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  font-family: Inter;
+  font-style: normal;
+  text-decoration: none;
+  transition: 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    transition: 0.2s;
+    opacity: 0.7;
+  }
+}
+
+button {
+  border: none;
+  background: transparent;
+  transition: 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    transition: 0.2s;
+    opacity: 0.7;
+  }
+}
+
+input:focus {
+  outline: none;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+

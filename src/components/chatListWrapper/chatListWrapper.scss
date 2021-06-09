@@ -1,0 +1,42 @@
+.chat {
+  &__list-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+  }
+
+  &__list-title {
+    font-family: Inter,  sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: -0.04em;
+    color: #1E1E1E;
+    margin-left: 10px;
+  }
+
+  &__search {
+    width: 290px;
+    height: 32px;
+    display: block;
+    box-sizing: border-box;
+    background: #EFEFEF;
+    color: #1E1E1E;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 12px;
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-right: 27px;
+    border: none;
+    margin-bottom: 12px;
+  }
+
+  &__search::placeholder {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 12px;
+    color: #999999;
+    text-align: center;
+  }
+}

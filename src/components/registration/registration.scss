@@ -1,0 +1,40 @@
+.registration {
+  background-color: #F4F4F4;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+
+  &__wrapper {
+    align-self: center;
+    max-width: 300px;
+    padding: 16px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    filter: drop-shadow(6px 6px 10px rgba(28, 20, 31, 0.1));
+    border-radius: 12px;
+  }
+
+  &__title {
+    text-align: center;
+  }
+
+  &__btn-wrapper {
+    margin-top: 40px;
+  }
+
+  &__btn {
+    margin-bottom: 12px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__input {
+    margin-bottom: 12px;
+// не срабатывает этот селектор, ни на первого, ни на последнего чайлда
+    &:last-child {
+      margin-bottom: 40px;
+    }
+  }
+}

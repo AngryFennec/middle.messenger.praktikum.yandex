@@ -1,0 +1,22 @@
+.input {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 9px;
+  line-height: 9px;
+  color: #999999;
+
+
+  &__input {
+    margin-top: 4px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #7318AB;
+    font-weight: 500;
+    font-family: Inter;
+    font-style: normal;
+  }
+}
