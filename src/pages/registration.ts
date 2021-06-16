@@ -1,9 +1,9 @@
 import button from "../components/button";
 import registration from "../components/registration";
 import input from "../components/input";
-import registrationEvent from "../js/registration";
+import registrationEvent from "../scripts/registration";
 
-const renderButtons = () => {
+function renderButtons(): string {
   return [button.render({
     buttonClass: 'button--solid registration__btn registration__btn--enter',
     buttonText: 'Зарегистрироваться',
@@ -18,7 +18,7 @@ const renderButtons = () => {
   ].join('');
 };
 
-const renderInputs = () => {
+function renderInputs(): string {
   return [
     input.render({
       inputClass: 'registration__input',
@@ -82,7 +82,7 @@ const renderInputs = () => {
 const registrationButtons = renderButtons();
 const registrationInputs = renderInputs();
 
-const tmpl = [
+const tmpl: string = [
   registration.render({
     buttons: registrationButtons,
     inputs: registrationInputs,

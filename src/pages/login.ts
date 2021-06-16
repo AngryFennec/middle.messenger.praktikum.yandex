@@ -2,7 +2,7 @@ import button from "../components/button";
 import auth from "../components/auth";
 import input from "../components/input";
 
-const renderButtons = () => {
+function renderButtons(): string {
   return [button.render({
     buttonClass: 'button--solid auth__btn auth__btn--enter',
     buttonText: 'Войти',
@@ -17,7 +17,7 @@ const renderButtons = () => {
   ].join('');
 };
 
-const renderInputs = () => {
+function renderInputs(): string {
   return [
     input.render({
     inputClass: 'auth__input',
@@ -41,7 +41,7 @@ const renderInputs = () => {
 const authButtons = renderButtons();
 const authInputs = renderInputs();
 
-const tmpl = [
+const tmpl: string = [
   auth.render({
     buttons: authButtons,
     inputs: authInputs,

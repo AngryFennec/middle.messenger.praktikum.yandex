@@ -6,7 +6,7 @@ import chatListWrapper from "../components/chatListWrapper";
 import chatBoardWrapper from "../components/chatBoardWrapper";
 import chatMessage from "../components/chatMessage";
 
-const chatListContent = [
+const chatListContent: string = [
   chatItem.render({
     chatTitle: 'Чат 1',
     chatText: 'Уже прочитано',
@@ -23,13 +23,13 @@ const chatListContent = [
   }),
 ].join('');
 
-const chatListRender = [
+const chatListRender: string = [
   chatList.render({
     content: chatListContent,
   })
 ].join('');
 
-const chatMessageContent = [
+const chatMessageContent: string = [
   chatMessage.render({
     text: 'blablalba',
     time: '12:48',
@@ -47,7 +47,7 @@ const chatMessageContent = [
 
 ].join('');
 
-const chatContent = [
+const chatContent: string = [
   aside.render({
     isActiveProfile: false,
     isActiveChat: true,
@@ -61,7 +61,7 @@ const chatContent = [
   }),
 ].join('');
 
-const tmpl = [
+const tmpl: string = [
   pageMain.render({
     wrapperClass: 'page-main__wrapper--horizontal',
     content: chatContent,

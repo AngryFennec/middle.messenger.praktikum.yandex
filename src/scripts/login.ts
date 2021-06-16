@@ -1,7 +1,7 @@
 import {setFormSubmitHandler} from "./setFormSubmitHandler";
 
-const initLogin = () => {
-  const $loginForm = document.querySelector('#auth-form');
+function initLogin(): void {
+  const $loginForm: HTMLFormElement = document.querySelector('#auth-form');
   setFormSubmitHandler($loginForm, '/chat.html')
 };
 

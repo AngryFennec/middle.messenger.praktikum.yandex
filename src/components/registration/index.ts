@@ -1,5 +1,6 @@
+// @ts-ignore
 import Handlebars from 'handlebars'
-import tmpl from './chatList.tmpl.js'
+import tmpl from './registration.tmpl'
 
 export default {
   render: Handlebars.compile(tmpl,{ noEscape: true }),

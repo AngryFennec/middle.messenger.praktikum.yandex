@@ -3,10 +3,10 @@ import input from "../components/input";
 import button from "../components/button";
 import profile from "../components/profile";
 import aside from "../components/aside";
-import profileEvent from "../js/profile";
+import profileEvent from "../scripts/profile";
 
 
-const renderInputs = () => {
+function renderInputs(): string {
   return [
     input.render({
       inputClass: 'profile__input',
@@ -68,14 +68,14 @@ const renderInputs = () => {
   ].join('');
 }
 
-const inputsContent = renderInputs();
-const buttonContent = button.render({
+const inputsContent: string = renderInputs();
+const buttonContent: string = button.render({
   buttonType: 'submit',
   buttonClass: 'button--solid profile__btn',
   buttonText: 'Сохранить',
 });
 
-const profileContent = [
+const profileContent: string = [
   aside.render({
     isActiveProfile: true,
     isActiveChat: false,
@@ -86,7 +86,7 @@ const profileContent = [
   })
   ].join('');
 
-const tmpl = [
+const tmpl: string = [
   pageMain.render({
     wrapperClass: 'page-main__wrapper--horizontal',
     content: profileContent,

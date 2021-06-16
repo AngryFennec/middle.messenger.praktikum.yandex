@@ -1,7 +1,7 @@
 import error from "../components/error";
-const tmpl = [
+const tmpl: string = [
   error.render({
-    statusCode:'500',
+    statusCode:'404',
   })
 ].join('');
 

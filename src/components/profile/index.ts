@@ -1,5 +1,6 @@
+// @ts-ignore
 import Handlebars from 'handlebars'
-import tmpl from './input.tmpl.js'
+import tmpl from './profile.tmpl'
 
 export default {
   render: Handlebars.compile(tmpl,{ noEscape: true }),
