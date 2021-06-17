@@ -1,10 +1,9 @@
-import pageMain from "../components/pageMain";
-import input from "../components/input";
-import button from "../components/button";
-import profile from "../components/profile";
-import aside from "../components/aside";
-import profileEvent from "../scripts/profile";
-
+import pageMain from '../components/pageMain';
+import input from '../components/input';
+import profile from '../components/profile';
+import profileEvent from '../scripts/profile';
+import Button from '../components/button';
+import Aside from '../components/aside';
 
 function renderInputs(): string {
   return [
@@ -69,28 +68,28 @@ function renderInputs(): string {
 }
 
 const inputsContent: string = renderInputs();
-const buttonContent: string = button.render({
+const buttonContent: string = new Button({
   buttonType: 'submit',
   buttonClass: 'button--solid profile__btn',
   buttonText: 'Сохранить',
-});
+}).render();
 
 const profileContent: string = [
-  aside.render({
+  new Aside({
     isActiveProfile: true,
     isActiveChat: false,
-  }),
+  }).render(),
   profile.render({
     button: buttonContent,
     inputs: inputsContent,
-  })
-  ].join('');
+  }),
+].join('');
 
 const tmpl: string = [
   pageMain.render({
     wrapperClass: 'page-main__wrapper--horizontal',
     content: profileContent,
-  })
+  }),
 ].join('');
 
 document.querySelector('#root').innerHTML = tmpl;

@@ -1,22 +1,22 @@
-import button from "../components/button";
-import registration from "../components/registration";
-import input from "../components/input";
-import registrationEvent from "../scripts/registration";
+import registration from '../components/registration';
+import input from '../components/input';
+import registrationEvent from '../scripts/registration';
+import Button from '../components/button';
 
 function renderButtons(): string {
-  return [button.render({
+  return [new Button({
     buttonClass: 'button--solid registration__btn registration__btn--enter',
     buttonText: 'Зарегистрироваться',
     buttonType: 'submit',
-  }),
-    button.render({
-      buttonRoute: 'login.html',
-      buttonClass: 'button--transparent registration__btn',
-      buttonText: 'Уже есть аккаунт?',
-      link: true,
-    })
+  }).render(),
+  new Button({
+    buttonRoute: 'index.html',
+    buttonClass: 'button--transparent registration__btn',
+    buttonText: 'Уже есть аккаунт?',
+    link: true,
+  }).render(),
   ].join('');
-};
+}
 
 function renderInputs(): string {
   return [

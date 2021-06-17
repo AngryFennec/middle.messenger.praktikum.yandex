@@ -1,8 +1,19 @@
 // @ts-ignore
-import Handlebars from 'handlebars'
-import tmpl from './button.tmpl'
+// eslint-disable-next-line import/no-extraneous-dependencies
+import Handlebars from 'handlebars';
+import tmpl from './button.tmpl';
+import Block from '../../common/block';
+import ButtonOptions from './button.options';
 
-export default {
-  render: Handlebars.compile(tmpl,{ noEscape: true }),
-  template: tmpl,
+export default class Button extends Block {
+  public template: string = tmpl;
+
+  constructor(props: ButtonOptions) {
+    super();
+    this.props = props;
+  }
+
+  public render() {
+    return Handlebars.compile(tmpl, { noEscape: true })(this.props);
+  }
 }

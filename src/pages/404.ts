@@ -1,8 +1,9 @@
-import error from "../components/error";
+import error from '../components/error';
+
 const tmpl: string = [
   error.render({
-    statusCode:'404',
-  })
+    statusCode: '404',
+  }),
 ].join('');
 
 document.querySelector('#root').innerHTML = tmpl;

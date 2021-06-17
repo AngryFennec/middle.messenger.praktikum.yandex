@@ -1,10 +1,10 @@
-import aside from "../components/aside";
-import chatList from "../components/chatList";
-import pageMain from "../components/pageMain";
-import chatItem from "../components/chatItem";
-import chatListWrapper from "../components/chatListWrapper";
-import chatBoardWrapper from "../components/chatBoardWrapper";
-import chatMessage from "../components/chatMessage";
+import chatList from '../components/chatList';
+import pageMain from '../components/pageMain';
+import chatItem from '../components/chatItem';
+import chatListWrapper from '../components/chatListWrapper';
+import chatMessage from '../components/chatMessage';
+import Aside from '../components/aside';
+import ChatBoardWrapper from '../components/chatBoardWrapper';
 
 const chatListContent: string = [
   chatItem.render({
@@ -26,7 +26,7 @@ const chatListContent: string = [
 const chatListRender: string = [
   chatList.render({
     content: chatListContent,
-  })
+  }),
 ].join('');
 
 const chatMessageContent: string = [
@@ -48,24 +48,24 @@ const chatMessageContent: string = [
 ].join('');
 
 const chatContent: string = [
-  aside.render({
+  new Aside({
     isActiveProfile: false,
     isActiveChat: true,
-  }),
+  }).render(),
   chatListWrapper.render({
     listContent: chatListRender,
   }),
-  chatBoardWrapper.render({
+  new ChatBoardWrapper({
     messagesContent: chatMessageContent,
     userName: 'Вадим',
-  }),
+  }).render(),
 ].join('');
 
 const tmpl: string = [
   pageMain.render({
     wrapperClass: 'page-main__wrapper--horizontal',
     content: chatContent,
-  })
+  }),
 ].join('');
 
 document.querySelector('#root').innerHTML = tmpl;

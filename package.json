@@ -3,10 +3,14 @@
   "version": "1.0.0",
   "description": "---",
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "4.27.0",
+    "@typescript-eslint/eslint-plugin": "^4.27.0",
     "@typescript-eslint/parser": "4.27.0",
     "eslint": "7.28.0",
-    "eslint-config-xo": "0.37.0",
+    "eslint-config-airbnb-typescript": "^12.3.1",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "express": "4.17.1",
     "handlebars": "4.7.7",
     "parcel": "2.0.0-beta.3.1",
@@ -16,14 +20,15 @@
     "sass": "1.32.8",
     "stylelint": "^13.13.1",
     "ts-node": "10.0.0",
-    "typescript": "4.3.2"
+    "typescript": "4.3.2",
+    "undefined": "^0.1.0"
   },
   "scripts": {
     "dev": "npm run clear && parcel ./static/*.html --port 3000",
     "build": "npm run clear && parcel build ./static/*.html --no-source-maps --no-cache --public-url ./",
     "clear": "rm -rf dist .cache",
     "start": "npm run clear && parcel build ./static/*.html --no-source-maps --no-cache --public-url ./ && node ./server.js",
-    "eslint": "eslint"
+    "eslint": "eslint src/"
   },
   "repository": {
     "type": "git",
