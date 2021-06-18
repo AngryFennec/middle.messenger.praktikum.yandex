@@ -1,6 +1,6 @@
 import Button from '../components/button';
-import input from '../components/input';
 import Auth from '../components/auth';
+import Input from '../components/input';
 
 function renderButtons(): string {
   return [
@@ -20,22 +20,22 @@ function renderButtons(): string {
 
 function renderInputs(): string {
   return [
-    input.render({
+    new Input({
       inputClass: 'auth__input',
       labelText: 'Логин',
       inputType: 'text',
       inputPlaceholder: 'Логин',
       inputName: 'login',
       inputValue: '',
-    }),
-    input.render({
+    }).render(),
+    new Input({
       inputClass: 'auth__input',
       labelText: 'Пароль',
       inputType: 'password',
       inputPlaceholder: 'Пароль',
       inputName: 'password',
       inputValue: '',
-    }),
+    }).render(),
   ].join('');
 }
 

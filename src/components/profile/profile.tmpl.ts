@@ -6,7 +6,7 @@ export default `
                 <input class="profile__avatar" type="file" name="avatar">
             </label>
             {{inputs}}
-            {{button}}
+            {{buttons}}
         </form>
     </div>
 </div>`;

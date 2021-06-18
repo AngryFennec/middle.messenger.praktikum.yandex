@@ -1,69 +1,68 @@
-import pageMain from '../components/pageMain';
-import input from '../components/input';
-import profile from '../components/profile';
 import profileEvent from '../scripts/profile';
 import Button from '../components/button';
 import Aside from '../components/aside';
+import Input from '../components/input';
+import PageMain from '../components/pageMain';
+import Profile from '../components/profile';
 
 function renderInputs(): string {
   return [
-    input.render({
+    new Input({
       inputClass: 'profile__input',
       labelText: 'Логин',
       inputType: 'text',
       inputPlaceholder: 'Логин',
       inputName: 'login',
       inputValue: 'IvanIvanov',
-    }),
-    input.render({
+    }).render(),
+    new Input({
       inputClass: 'profile__input',
       labelText: 'Почта',
       inputType: 'email',
       inputPlaceholder: 'Почта',
       inputName: 'email',
       inputValue: 'ivan@iv.an',
-    }),
-    input.render({
+    }).render(),
+    new Input({
       inputClass: 'profile__input',
       labelText: 'Телефон',
       inputType: 'tel',
       inputPlaceholder: 'Телефон',
       inputName: 'phone',
       inputValue: '+79033030303',
-    }),
-    input.render({
+    }).render(),
+    new Input({
       inputClass: 'profile__input',
       labelText: 'Имя',
       inputType: 'text',
       inputPlaceholder: 'Имя',
       inputName: 'first_name',
       inputValue: 'Иван',
-    }),
-    input.render({
+    }).render(),
+    new Input({
       inputClass: 'profile__input',
       labelText: 'Фамилия',
       inputType: 'text',
       inputPlaceholder: 'Фамилия',
       inputName: 'second_name',
       inputValue: 'Иванов',
-    }),
-    input.render({
+    }).render(),
+    new Input({
       inputClass: 'profile__input',
       labelText: 'Имя в чате',
       inputType: 'text',
       inputPlaceholder: 'Имя',
       inputName: 'display_name',
       inputValue: 'Иван',
-    }),
-    input.render({
+    }).render(),
+    new Input({
       inputClass: 'profile__input',
       labelText: 'Пароль',
       inputType: 'password',
       inputName: 'newPassword',
       inputPlaceholder: 'Пароль',
       inputValue: '*******',
-    }),
-
+    }).render(),
   ].join('');
 }
 
@@ -79,17 +78,17 @@ const profileContent: string = [
     isActiveProfile: true,
     isActiveChat: false,
   }).render(),
-  profile.render({
-    button: buttonContent,
+  new Profile({
+    buttons: buttonContent,
     inputs: inputsContent,
-  }),
+  }).render(),
 ].join('');
 
 const tmpl: string = [
-  pageMain.render({
+  new PageMain({
     wrapperClass: 'page-main__wrapper--horizontal',
     content: profileContent,
-  }),
+  }).render(),
 ].join('');
 
 document.querySelector('#root').innerHTML = tmpl;

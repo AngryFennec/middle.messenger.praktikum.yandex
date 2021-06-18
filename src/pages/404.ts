@@ -1,9 +1,9 @@
-import error from '../components/error';
+import ErrorElement from '../components/errorElement';
 
 const tmpl: string = [
-  error.render({
+  new ErrorElement({
     statusCode: '404',
-  }),
+  }).render(),
 ].join('');
 
 document.querySelector('#root').innerHTML = tmpl;

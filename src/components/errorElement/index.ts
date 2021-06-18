@@ -1,14 +1,14 @@
 // @ts-ignore
 // eslint-disable-next-line import/no-extraneous-dependencies
 import Handlebars from 'handlebars';
-import tmpl from './chatListWrapper.tmpl';
+import tmpl from './errorElement.tmpl';
 import Block from '../../common/block';
-import ChatListWrapperOptions from './chatListWrapper.options';
+import ErrorElementOptions from './errorElement.options';
 
-export default class ChatListWrapper extends Block {
+export default class ErrorElement extends Block {
   public template: string = tmpl;
 
-  constructor(props: ChatListWrapperOptions) {
+  constructor(props: ErrorElementOptions) {
     super();
     this.props = props;
   }

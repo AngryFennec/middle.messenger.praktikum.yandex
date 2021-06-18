@@ -1,7 +1,7 @@
-import registration from '../components/registration';
-import input from '../components/input';
 import registrationEvent from '../scripts/registration';
 import Button from '../components/button';
+import Input from '../components/input';
+import Registration from '../components/registration';
 
 function renderButtons(): string {
   return [new Button({
@@ -20,62 +20,62 @@ function renderButtons(): string {
 
 function renderInputs(): string {
   return [
-    input.render({
+    new Input({
       inputClass: 'registration__input',
       labelText: 'Логин',
       inputType: 'text',
       inputPlaceholder: 'Логин',
       inputName: 'login',
       inputValue: '',
-    }),
-    input.render({
+    }).render(),
+    new Input({
       inputClass: 'registration__input',
       labelText: 'Почта',
       inputType: 'email',
       inputPlaceholder: 'Почта',
       inputName: 'email',
       inputValue: '',
-    }),
-    input.render({
+    }).render(),
+    new Input({
       inputClass: 'registration__input',
       labelText: 'Телефон',
       inputType: 'tel',
       inputPlaceholder: 'Телефон',
       inputName: 'phone',
       inputValue: '',
-    }),
-    input.render({
+    }).render(),
+    new Input({
       inputClass: 'registration__input',
       labelText: 'Имя',
       inputType: 'text',
       inputPlaceholder: 'Имя',
       inputName: 'first_name',
       inputValue: '',
-    }),
-    input.render({
+    }).render(),
+    new Input({
       inputClass: 'registration__input',
       labelText: 'Фамилия',
       inputType: 'text',
       inputPlaceholder: 'Фамилия',
       inputName: 'second_name',
       inputValue: '',
-    }),
-    input.render({
+    }).render(),
+    new Input({
       inputClass: 'registration__input',
       labelText: 'Пароль',
       inputType: 'password',
       inputName: 'password',
       inputPlaceholder: 'Пароль',
       inputValue: '',
-    }),
-    input.render({
+    }).render(),
+    new Input({
       inputClass: 'registration__input',
       labelText: 'Пароль еще раз',
       inputType: 'password',
       inputName: 'password',
       inputPlaceholder: 'Пароль еще раз',
       inputValue: '',
-    }),
+    }).render(),
   ].join('');
 }
 
@@ -83,10 +83,10 @@ const registrationButtons = renderButtons();
 const registrationInputs = renderInputs();
 
 const tmpl: string = [
-  registration.render({
+  new Registration({
     buttons: registrationButtons,
     inputs: registrationInputs,
-  }),
+  }).render(),
 ].join('');
 
 document.querySelector('#root').innerHTML = tmpl;
