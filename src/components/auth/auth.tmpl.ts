@@ -10,4 +10,4 @@ export default `<section class="auth">
         </form>
     </div>
   </div>
-</section>`
+</section>`;

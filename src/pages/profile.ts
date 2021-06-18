@@ -4,6 +4,7 @@ import Aside from '../components/aside';
 import Input from '../components/input';
 import PageMain from '../components/pageMain';
 import Profile from '../components/profile';
+import { ValidationType } from '../components/input/input.types';
 
 function renderInputs(): string {
   return [
@@ -14,6 +15,7 @@ function renderInputs(): string {
       inputPlaceholder: 'Логин',
       inputName: 'login',
       inputValue: 'IvanIvanov',
+      validation: ValidationType.name,
     }).render(),
     new Input({
       inputClass: 'profile__input',
@@ -22,6 +24,7 @@ function renderInputs(): string {
       inputPlaceholder: 'Почта',
       inputName: 'email',
       inputValue: 'ivan@iv.an',
+      validation: ValidationType.email,
     }).render(),
     new Input({
       inputClass: 'profile__input',
@@ -30,6 +33,7 @@ function renderInputs(): string {
       inputPlaceholder: 'Телефон',
       inputName: 'phone',
       inputValue: '+79033030303',
+      validation: ValidationType.phone,
     }).render(),
     new Input({
       inputClass: 'profile__input',
@@ -38,6 +42,7 @@ function renderInputs(): string {
       inputPlaceholder: 'Имя',
       inputName: 'first_name',
       inputValue: 'Иван',
+      validation: ValidationType.name,
     }).render(),
     new Input({
       inputClass: 'profile__input',
@@ -46,6 +51,7 @@ function renderInputs(): string {
       inputPlaceholder: 'Фамилия',
       inputName: 'second_name',
       inputValue: 'Иванов',
+      validation: ValidationType.name,
     }).render(),
     new Input({
       inputClass: 'profile__input',
@@ -54,6 +60,7 @@ function renderInputs(): string {
       inputPlaceholder: 'Имя',
       inputName: 'display_name',
       inputValue: 'Иван',
+      validation: ValidationType.name,
     }).render(),
     new Input({
       inputClass: 'profile__input',
@@ -61,7 +68,8 @@ function renderInputs(): string {
       inputType: 'password',
       inputName: 'newPassword',
       inputPlaceholder: 'Пароль',
-      inputValue: '*******',
+      inputValue: 'ssssss',
+      validation: ValidationType.password,
     }).render(),
   ].join('');
 }

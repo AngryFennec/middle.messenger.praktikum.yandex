@@ -1,4 +1,5 @@
 // @ts-ignore
+// eslint-disable-next-line import/no-extraneous-dependencies
 import Handlebars from 'handlebars';
 import tmpl from './auth.tmpl';
 import Block from '../../common/block';

@@ -2,6 +2,7 @@ import registrationEvent from '../scripts/registration';
 import Button from '../components/button';
 import Input from '../components/input';
 import Registration from '../components/registration';
+import { ValidationType } from '../components/input/input.types';
 
 function renderButtons(): string {
   return [new Button({
@@ -27,6 +28,7 @@ function renderInputs(): string {
       inputPlaceholder: 'Логин',
       inputName: 'login',
       inputValue: '',
+      validation: ValidationType.name,
     }).render(),
     new Input({
       inputClass: 'registration__input',
@@ -35,6 +37,7 @@ function renderInputs(): string {
       inputPlaceholder: 'Почта',
       inputName: 'email',
       inputValue: '',
+      validation: ValidationType.email,
     }).render(),
     new Input({
       inputClass: 'registration__input',
@@ -43,6 +46,7 @@ function renderInputs(): string {
       inputPlaceholder: 'Телефон',
       inputName: 'phone',
       inputValue: '',
+      validation: ValidationType.phone,
     }).render(),
     new Input({
       inputClass: 'registration__input',
@@ -51,6 +55,7 @@ function renderInputs(): string {
       inputPlaceholder: 'Имя',
       inputName: 'first_name',
       inputValue: '',
+      validation: ValidationType.name,
     }).render(),
     new Input({
       inputClass: 'registration__input',
@@ -59,6 +64,7 @@ function renderInputs(): string {
       inputPlaceholder: 'Фамилия',
       inputName: 'second_name',
       inputValue: '',
+      validation: ValidationType.name,
     }).render(),
     new Input({
       inputClass: 'registration__input',
@@ -67,6 +73,7 @@ function renderInputs(): string {
       inputName: 'password',
       inputPlaceholder: 'Пароль',
       inputValue: '',
+      validation: ValidationType.password,
     }).render(),
     new Input({
       inputClass: 'registration__input',
@@ -75,6 +82,7 @@ function renderInputs(): string {
       inputName: 'password',
       inputPlaceholder: 'Пароль еще раз',
       inputValue: '',
+      validation: ValidationType.password,
     }).render(),
   ].join('');
 }

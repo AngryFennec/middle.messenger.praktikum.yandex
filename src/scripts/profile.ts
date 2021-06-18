@@ -1,10 +1,10 @@
-import {setFormSubmitHandler} from "./setFormSubmitHandler";
+import { setFormSubmitHandler, setFormValidationHandler } from './setFormSubmitHandler';
 
 function initProfile(): void {
   const $profileForm: HTMLFormElement = document.querySelector('#profile-form');
-  console.log($profileForm);
   setFormSubmitHandler($profileForm, '');
-};
+  setFormValidationHandler($profileForm);
+}
 
 export default {
   initProfile,

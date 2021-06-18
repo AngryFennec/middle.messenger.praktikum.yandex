@@ -5,4 +5,5 @@ export default interface InputOptions {
   inputValue?: string;
   inputName: string;
   labelText?: string;
+  validation?: string;
 }

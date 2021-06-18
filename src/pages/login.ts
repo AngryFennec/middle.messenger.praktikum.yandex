@@ -1,6 +1,7 @@
 import Button from '../components/button';
 import Auth from '../components/auth';
 import Input from '../components/input';
+import { ValidationType } from '../components/input/input.types';
 
 function renderButtons(): string {
   return [
@@ -27,6 +28,7 @@ function renderInputs(): string {
       inputPlaceholder: 'Логин',
       inputName: 'login',
       inputValue: '',
+      validation: ValidationType.name,
     }).render(),
     new Input({
       inputClass: 'auth__input',
@@ -35,6 +37,7 @@ function renderInputs(): string {
       inputPlaceholder: 'Пароль',
       inputName: 'password',
       inputValue: '',
+      validation: ValidationType.password,
     }).render(),
   ].join('');
 }
