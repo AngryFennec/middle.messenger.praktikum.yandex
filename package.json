@@ -25,9 +25,9 @@
   },
   "scripts": {
     "dev": "npm run clear && parcel ./static/*.html  --port 3000",
-    "build": "npm run clear && parcel build ./static/*.html --no-source-maps --no-cache --public-url --port 3000 ./",
+    "build": "npm run clear && parcel build ./static/*.html --no-source-maps --no-cache --public-url ./",
     "clear": "rm -rf dist .cache",
-    "start": "npm run clear && parcel build ./static/*.html --no-source-maps --no-cache --public-url --port 3000 ./ && node ./server.js",
+    "start": "npm run clear && parcel build ./static/*.html --no-source-maps --no-cache --public-url ./ && node ./server.js",
     "eslint": "eslint src/"
   },
   "repository": {
