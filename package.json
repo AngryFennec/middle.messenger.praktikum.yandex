@@ -19,6 +19,7 @@
     "sass": "1.32.8",
     "stylelint": "^13.13.1",
     "ts-node": "10.0.0",
+    "typescript": "^4.3.2",
     "undefined": "^0.1.0"
   },
   "scripts": {
@@ -37,8 +38,5 @@
   "bugs": {
     "url": "https://github.com/AngryFennec/middle.messenger.praktikum.yandex/issues"
   },
-  "homepage": "https://github.com/AngryFennec/middle.messenger.praktikum.yandex#readme",
-  "dependencies": {
-    "typescript": "^4.3.2"
-  }
+  "homepage": "https://github.com/AngryFennec/middle.messenger.praktikum.yandex#readme"
 }
