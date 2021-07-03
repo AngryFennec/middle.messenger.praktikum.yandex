@@ -31,7 +31,9 @@ function queryStringify(data: string): string {
 
 export default class HTTPTransport {
   public get(url: string, options: OptionsType = {}): void {
-    this.request(url, { ...options, method: METHODS.GET }, options.timeout);
+    this.request(`${url}${queryStringify(options.data)}`,
+      { ...options, method: METHODS.GET },
+      options.timeout);
   }
 
   public post(url: string, options: OptionsType = {}): void {
@@ -46,7 +48,7 @@ export default class HTTPTransport {
     this.request(url, { ...options, method: METHODS.DELETE }, options.timeout);
   }
 
-  public request = (url, options: OptionsType = {}, timeout = 5000) => {
+  private request = (url, options: OptionsType = {}, timeout = 5000) => {
     const { headers = {}, method, data } = options;
 
     return new Promise((resolve, reject) => {
@@ -61,9 +63,7 @@ export default class HTTPTransport {
 
       xhr.open(
         method,
-        isGet && !!data
-          ? `${url}${queryStringify(data)}`
-          : url,
+        url,
       );
 
       Object.keys(headers).forEach((key) => {

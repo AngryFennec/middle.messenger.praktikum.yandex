@@ -10,11 +10,11 @@ export default class Block {
 
   private blockElement = null;
 
-  private meta = null;
+  private readonly meta = null;
 
   protected props: any;
 
-  private eventBus: () => EventBus;
+  private eventBus: EventBus;
 
   /** JSDoc
    * @param {string} tagName
@@ -23,18 +23,12 @@ export default class Block {
    * @returns {void}
    */
   constructor(tagName = 'div', props = {}) {
-    const eventBus = new EventBus();
     this.meta = {
       tagName,
       props,
     };
 
     this.props = this.makePropsProxy(props);
-
-    this.eventBus = () => eventBus;
-
-    this.registerEvents(eventBus);
-    eventBus.emit(Block.EVENTS.INIT);
   }
 
   private registerEvents(eventBus) {
@@ -50,13 +44,18 @@ export default class Block {
   }
 
   public init() {
+    const eventBus = new EventBus();
+    this.eventBus = eventBus;
+
+    this.registerEvents(eventBus);
+    eventBus.emit(Block.EVENTS.INIT);
     this.createResources();
-    this.eventBus().emit(Block.EVENTS.FLOW_CDM);
+    this.eventBus.emit(Block.EVENTS.FLOW_CDM);
   }
 
   private blockComponentDidMount() {
     this.componentDidMount();
-    this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
+    this.eventBus.emit(Block.EVENTS.FLOW_RENDER);
   }
 
   componentDidMount() {}
@@ -113,7 +112,7 @@ export default class Block {
 
         // Запускаем обновление компоненты
         // Плохой cloneDeep, в след итерации нужно заставлять добавлять cloneDeep им самим
-        self.eventBus().emit(Block.EVENTS.FLOW_CDU, { ...target }, target);
+        self.eventBus.emit(Block.EVENTS.FLOW_CDU, { ...target }, target);
         return true;
       },
       deleteProperty() {
