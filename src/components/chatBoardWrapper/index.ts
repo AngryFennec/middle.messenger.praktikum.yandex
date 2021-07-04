@@ -5,11 +5,11 @@ import tmpl from './chatBoardWrapper.tmpl';
 import Block from '../../common/block';
 import ChatBoardWrapperOptions from './chatBoardWrapper.options';
 
-export default class ChatBoardWrapper extends Block {
+export default class ChatBoardWrapper extends Block<ChatBoardWrapperOptions> {
   public template: string = tmpl;
 
   constructor(props: ChatBoardWrapperOptions) {
-    super();
+    super(props);
     this.props = props;
   }
 

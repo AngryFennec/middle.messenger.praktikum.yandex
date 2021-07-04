@@ -1,4 +1,5 @@
 import { ValidationType } from '../components/input/input.types';
+import Router from '../common/router';
 
 const EMAIL_REGEXP: RegExp = /^[^\s@]+@[^\s@]+$/;
 const PHONE_REGEXP: RegExp = /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/g;
@@ -69,7 +70,7 @@ export function setFormSubmitHandler(form: HTMLFormElement, link: string): void 
     });
 
     if (link && !isAnyInvalid) {
-      window.location.href = link;
+      new Router().go(link);
     }
   });
 }

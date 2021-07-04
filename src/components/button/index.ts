@@ -5,11 +5,9 @@ import tmpl from './button.tmpl';
 import Block from '../../common/block';
 import ButtonOptions from './button.options';
 
-export default class Button extends Block {
-  public template: string = tmpl;
-
+export default class Button extends Block<ButtonOptions> {
   constructor(props: ButtonOptions) {
-    super();
+    super(props);
     this.props = props;
   }
 

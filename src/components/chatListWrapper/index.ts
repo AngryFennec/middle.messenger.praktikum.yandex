@@ -5,11 +5,9 @@ import tmpl from './chatListWrapper.tmpl';
 import Block from '../../common/block';
 import ChatListWrapperOptions from './chatListWrapper.options';
 
-export default class ChatListWrapper extends Block {
-  public template: string = tmpl;
-
+export default class ChatListWrapper extends Block<ChatListWrapperOptions> {
   constructor(props: ChatListWrapperOptions) {
-    super();
+    super(props);
     this.props = props;
   }
 

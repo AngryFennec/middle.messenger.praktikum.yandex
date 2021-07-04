@@ -5,11 +5,11 @@ import tmpl from './aside.tmpl';
 import Block from '../../common/block';
 import AsideOptions from './aside.options';
 
-export default class Aside extends Block {
+export default class Aside extends Block<AsideOptions> {
   public template: string = tmpl;
 
   constructor(props: AsideOptions) {
-    super();
+    super(props);
     this.props = props;
   }
 

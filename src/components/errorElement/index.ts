@@ -5,11 +5,11 @@ import tmpl from './errorElement.tmpl';
 import Block from '../../common/block';
 import ErrorElementOptions from './errorElement.options';
 
-export default class ErrorElement extends Block {
+export default class ErrorElement extends Block<ErrorElementOptions> {
   public template: string = tmpl;
 
   constructor(props: ErrorElementOptions) {
-    super();
+    super(props);
     this.props = props;
   }
 

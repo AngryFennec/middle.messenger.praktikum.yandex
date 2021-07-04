@@ -1,8 +1,8 @@
 import { setFormSubmitHandler, setFormValidationHandler } from './setFormSubmitHandler';
 
-function initRegistration(): void {
-  const $regForm: HTMLFormElement = document.querySelector('#registration-form');
-  setFormSubmitHandler($regForm, '/chat.html');
+export function initRegistration(element): void {
+  const $regForm: HTMLFormElement = element.querySelector('#registration-form');
+  setFormSubmitHandler($regForm, '/chat');
   setFormValidationHandler($regForm);
 }
 

@@ -5,15 +5,15 @@ import tmpl from './registration.tmpl';
 import Block from '../../common/block';
 import RegistrationOptions from './registration.options';
 
-export default class Registration extends Block {
-  public template: string = tmpl;
-
+export default class Registration extends Block<RegistrationOptions> {
   constructor(props: RegistrationOptions) {
-    super();
+    super(props);
     this.props = props;
   }
 
   public render() {
-    return Handlebars.compile(tmpl, { noEscape: true })(this.props);
+    const buttons = this.props.buttons.join('');
+    const inputs = this.props.inputs.join('');
+    return Handlebars.compile(tmpl, { noEscape: true })({ buttons, inputs });
   }
 }
