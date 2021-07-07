@@ -18,7 +18,7 @@ export default class Login extends Block<PropsType> {
             buttonType: 'submit',
           }).render(),
           new Button({
-            buttonRoute: 'registration.html',
+            buttonRoute: '/registration',
             buttonClass: 'button--transparent auth__btn',
             buttonText: 'Зарегистрироваться',
             link: true,

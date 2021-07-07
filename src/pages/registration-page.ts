@@ -16,7 +16,7 @@ export default class RegistrationPage extends Block<PropsType> {
           buttonType: 'submit',
         }).render(),
         new Button({
-          buttonRoute: 'index.html',
+          buttonRoute: '/',
           buttonClass: 'button--transparent registration__btn',
           buttonText: 'Уже есть аккаунт?',
           link: true,

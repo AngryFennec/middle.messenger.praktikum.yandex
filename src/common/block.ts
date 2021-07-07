@@ -95,9 +95,10 @@ export default class Block<T extends PropsType> {
 
   private setHandlers() {
     const { handlers } = this.props;
-    console.log(this);
     if (handlers) {
       handlers.forEach((item) => {
+        console.log(item);
+
         item(this.blockElement);
       });
     }
