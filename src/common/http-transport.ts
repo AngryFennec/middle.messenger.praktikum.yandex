@@ -30,25 +30,27 @@ function queryStringify(data: string): string {
 }
 
 export default class HTTPTransport {
-  public get(url: string, options: OptionsType = {}): void {
-    this.request(`${url}${queryStringify(options.data)}`,
+  private base = 'https://ya-praktikum.tech/api/v2';
+
+  public get(url: string, options: OptionsType = {}): Promise<any> {
+    return this.request(`${this.base}${url}${queryStringify(options.data)}`,
       { ...options, method: METHODS.GET },
       options.timeout);
   }
 
-  public post(url: string, options: OptionsType = {}): void {
-    this.request(url, { ...options, method: METHODS.POST }, options.timeout);
+  public post(url: string, options: OptionsType = {}): Promise<any> {
+    return this.request(`${this.base}${url}`, { ...options, method: METHODS.POST }, options.timeout);
   }
 
-  public put(url: string, options: OptionsType = {}): void {
-    this.request(url, { ...options, method: METHODS.PUT }, options.timeout);
+  public put(url: string, options: OptionsType = {}): Promise<any> {
+    return this.request(`${this.base}${url}`, { ...options, method: METHODS.PUT }, options.timeout);
   }
 
-  public delete(url: string, options: OptionsType = {}) {
-    this.request(url, { ...options, method: METHODS.DELETE }, options.timeout);
+  public delete(url: string, options: OptionsType = {}): Promise<any> {
+    return this.request(`${this.base}${url}`, { ...options, method: METHODS.DELETE }, options.timeout);
   }
 
-  private request = (url, options: OptionsType = {}, timeout = 5000) => {
+  private request(url, options: OptionsType = {}, timeout = 5000): Promise<any> {
     const { headers = {}, method, data } = options;
 
     return new Promise((resolve, reject) => {
@@ -65,7 +67,6 @@ export default class HTTPTransport {
         method,
         url,
       );
-
       Object.keys(headers).forEach((key) => {
         xhr.setRequestHeader(key, headers[key]);
       });
@@ -76,6 +77,7 @@ export default class HTTPTransport {
 
       xhr.onabort = reject;
       xhr.onerror = reject;
+      xhr.withCredentials = true;
 
       xhr.timeout = timeout;
       xhr.ontimeout = reject;
@@ -86,5 +88,5 @@ export default class HTTPTransport {
         xhr.send(data);
       }
     });
-  };
+  }
 }

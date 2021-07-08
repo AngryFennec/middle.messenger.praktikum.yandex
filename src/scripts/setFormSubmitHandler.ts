@@ -1,5 +1,6 @@
 import { ValidationType } from '../components/input/input.types';
 import Router from '../common/router';
+import AuthAPI from '../api/auth-api';
 
 const EMAIL_REGEXP: RegExp = /^[^\s@]+@[^\s@]+$/;
 const PHONE_REGEXP: RegExp = /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/g;
@@ -49,12 +50,19 @@ export function setFormValidationHandler(form: HTMLFormElement): void {
   formTextInputs.forEach((input) => input.addEventListener('blur', removeInvalid));
 }
 
-export function setFormSubmitHandler(form: HTMLFormElement, link: string): void {
+export function convertFormData(formData: FormData): JSON {
+  const object:Record<string, any> = {};
+  formData.forEach((value, key) => {
+    object[key] = value;
+  });
+  return JSON.parse(JSON.stringify(object));
+}
+
+export function setFormSubmitHandler(form: HTMLFormElement, link: string, type?: string): void {
   form.addEventListener('submit', (evt) => {
     evt.preventDefault();
     const formData: FormData = new FormData(form);
 
-    // так как formData выводится пустой, сделан вывод поэлементно
     // eslint-disable-next-line no-restricted-syntax
     for (const entry of Object(formData).entries()) {
       // eslint-disable-next-line no-console
@@ -70,7 +78,24 @@ export function setFormSubmitHandler(form: HTMLFormElement, link: string): void 
     });
 
     if (link && !isAnyInvalid) {
-      new Router().go(link);
+      if (type === 'signin') {
+        new AuthAPI().signIn(convertFormData(formData)).then((result: any) => {
+          if (result) {
+            new Router().go(link);
+          }
+          console.log(result);
+        });
+        return;
+      }
+      if (type === 'signup') {
+        new AuthAPI().signUp(convertFormData(formData)).then((result: any) => {
+          if (result) {
+            new Router().go(link);
+          }
+          console.log(result);
+        });
+      }
+      // new Router().go(link);
     }
   });
 }
