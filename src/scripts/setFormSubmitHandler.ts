@@ -1,6 +1,7 @@
 import { ValidationType } from '../components/input/input.types';
 import Router from '../common/router';
 import AuthAPI from '../api/auth-api';
+import UserAPI from '../api/user-api';
 
 const EMAIL_REGEXP: RegExp = /^[^\s@]+@[^\s@]+$/;
 const PHONE_REGEXP: RegExp = /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/g;
@@ -80,22 +81,34 @@ export function setFormSubmitHandler(form: HTMLFormElement, link: string, type?:
     if (link && !isAnyInvalid) {
       if (type === 'signin') {
         new AuthAPI().signIn(convertFormData(formData)).then((result: any) => {
-          if (result) {
+          console.log(result);
+          if (result.status === 200) {
             new Router().go(link);
           }
-          console.log(result);
         });
         return;
       }
       if (type === 'signup') {
         new AuthAPI().signUp(convertFormData(formData)).then((result: any) => {
-          if (result) {
+          console.log(result);
+          if (result.status === 200) {
             new Router().go(link);
           }
-          console.log(result);
         });
+        return;
       }
-      // new Router().go(link);
+    }
+
+    if (!isAnyInvalid && type === 'profile') {
+      const userApi = new UserAPI();
+      const converted = convertFormData(formData);
+      if (formData.avatar) {
+        userApi.changeUserAvatar({ converted });
+      }
+      if (formData.password) {
+        userApi.changeUserPassword({ converted });
+      }
+      userApi.changeUserProfile((converted));
     }
   });
 }

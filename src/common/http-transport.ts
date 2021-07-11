@@ -14,6 +14,9 @@ interface OptionsType {
 }
 
 function queryStringify(data: string): string {
+  if (!data) {
+    return '';
+  }
   const arr = Object.entries(data);
   const res = [];
   arr.forEach((item: [string, any]) => {
@@ -75,9 +78,9 @@ export default class HTTPTransport {
         resolve(xhr);
       };
 
+      xhr.withCredentials = true;
       xhr.onabort = reject;
       xhr.onerror = reject;
-      xhr.withCredentials = true;
 
       xhr.timeout = timeout;
       xhr.ontimeout = reject;

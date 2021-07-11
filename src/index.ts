@@ -17,4 +17,3 @@ router
   .use('/profile', ProfilePage)
   .use('/chat', ChatPage)
   .start();
-// login.initLogin();

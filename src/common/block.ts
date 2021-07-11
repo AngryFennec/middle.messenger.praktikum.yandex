@@ -65,6 +65,8 @@ export default class Block<T extends PropsType> {
 
   private blockComponentDidUpdate(oldProps, newProps) {
     const response = this.componentDidUpdate(oldProps, newProps);
+    console.log(oldProps);
+    console.log(newProps);
     if (!response) {
       return;
     }

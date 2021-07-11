@@ -7,7 +7,7 @@ export default class Router {
 
   public history: History;
 
-  private currentRoute: null;
+  currentRoute: null;
 
   private rootQuery: string;
 
@@ -28,7 +28,6 @@ export default class Router {
     const route = new Route(pathname, block, { rootQuery: this.rootQuery });
 
     this.routes.push(route);
-    console.log(this.routes);
 
     return this;
   }

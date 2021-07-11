@@ -7,6 +7,7 @@ import ChatMessage from '../components/chatMessage';
 import PageMain from '../components/pageMain';
 import Block from '../common/block';
 import { PropsType } from '../common/props-type';
+import { setChatItemClick, setChatSendClick } from '../scripts/setChatClick';
 
 export default class ChatPage extends Block<PropsType> {
   constructor() {
@@ -23,23 +24,26 @@ export default class ChatPage extends Block<PropsType> {
               listContent: new ChatList({
                 content: [
                   new ChatItem({
+                    id: 'sd1',
                     chatTitle: 'Чат 1',
                     chatText: 'Уже прочитано',
                   }).render(),
                   new ChatItem({
+                    id: 'sd2',
                     chatTitle: 'Чат 2',
                     chatText: 'Не прочитано',
                     newMessagesCount: 3,
                   }).render(),
                   new ChatItem({
+                    id: 'sd3',
                     chatTitle: 'Чат 3',
                     chatText: 'Уже прочитано',
-                    isActive: true,
                   }).render(),
                 ].join(''),
               }).render(),
             }).render(),
             new ChatBoardWrapper({
+              id: localStorage.getItem('currentChatId') ?? 'sd1',
               messagesContent: [
                 new ChatMessage({
                   text: 'blablalba',
@@ -62,6 +66,7 @@ export default class ChatPage extends Block<PropsType> {
           ].join(''),
         },
       ),
+      handlers: [setChatItemClick, setChatSendClick],
     });
   }
 

@@ -2,7 +2,7 @@ import { setFormSubmitHandler, setFormValidationHandler } from './setFormSubmitH
 
 export function initProfile(element): void {
   const $profileForm: HTMLFormElement = element.querySelector('#profile-form');
-  setFormSubmitHandler($profileForm, '');
+  setFormSubmitHandler($profileForm, '', 'profile');
   setFormValidationHandler($profileForm);
 }
 
