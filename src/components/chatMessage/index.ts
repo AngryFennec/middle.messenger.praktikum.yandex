@@ -5,11 +5,9 @@ import tmpl from './chatMessage.tmpl';
 import Block from '../../common/block';
 import ChatMessageOptions from './chatMessage.options';
 
-export default class ChatMessage extends Block {
-  public template: string = tmpl;
-
+export default class ChatMessage extends Block<ChatMessageOptions> {
   constructor(props: ChatMessageOptions) {
-    super();
+    super(props);
     this.props = props;
   }
 

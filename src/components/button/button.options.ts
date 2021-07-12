@@ -4,4 +4,5 @@ export default interface ButtonOptions {
   buttonText?: string;
   link?: boolean;
   buttonType?: string;
+  handlers?: Function[];
 }

@@ -8,13 +8,16 @@
 https://github.com/AngryFennec/middle.messenger.praktikum.yandex/pull/1
 ### Например, задания для проектной работы во втором спринте вы делаете в ветке sprint_2. Открываете из неё pull request в ветку main (pr может называться произвольно). Ссылку на этот pr добавляете в README.md в ветке main. После этого на платформе Практикума нажимаете «Проверить задание».
 
+## Добавленный функционал:
+* TypeScript
+* BLock + EventBus
+* обертка для Fetch (не используется в заданиях спринта)
+* валидация форм
 
-Реквест: https://github.com/AngryFennec/middle.messenger.praktikum.yandex/pull/1
+Реквест 3 спринта: https://github.com/AngryFennec/middle.messenger.praktikum.yandex/pull/6
 
 Для запуска выполнить команды:
 * npm install
 * npm run start
 
-### TODO:
-* разобраться, почему фейлится тест на 3000 порт
 

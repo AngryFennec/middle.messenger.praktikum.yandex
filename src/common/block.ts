@@ -1,6 +1,7 @@
 import EventBus from './event-bus';
+import { PropsType } from './props-type';
 
-export default class Block {
+export default class Block<T extends PropsType> {
   static EVENTS = {
     INIT: 'init',
     FLOW_CDM: 'flow:component-did-mount',
@@ -12,7 +13,7 @@ export default class Block {
 
   private meta = null;
 
-  protected props: any;
+  protected props: T;
 
   private eventBus: () => EventBus;
 
@@ -22,7 +23,7 @@ export default class Block {
    *
    * @returns {void}
    */
-  constructor(tagName = 'div', props = {}) {
+  constructor(props: T, tagName = 'div') {
     const eventBus = new EventBus();
     this.meta = {
       tagName,
@@ -57,12 +58,15 @@ export default class Block {
   private blockComponentDidMount() {
     this.componentDidMount();
     this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
+    this.setHandlers();
   }
 
   componentDidMount() {}
 
   private blockComponentDidUpdate(oldProps, newProps) {
     const response = this.componentDidUpdate(oldProps, newProps);
+    console.log(oldProps);
+    console.log(newProps);
     if (!response) {
       return;
     }
@@ -89,6 +93,17 @@ export default class Block {
   private blockRender() {
     const block = this.render();
     this.blockElement.innerHTML = block;
+  }
+
+  private setHandlers() {
+    const { handlers } = this.props;
+    if (handlers) {
+      handlers.forEach((item) => {
+        console.log(item);
+
+        item(this.blockElement);
+      });
+    }
   }
 
   public render() {}

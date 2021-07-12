@@ -4,12 +4,14 @@ import Handlebars from 'handlebars';
 import tmpl from './errorElement.tmpl';
 import Block from '../../common/block';
 import ErrorElementOptions from './errorElement.options';
+import { setLink } from '../../scripts/link';
 
-export default class ErrorElement extends Block {
-  public template: string = tmpl;
-
+export default class ErrorElement extends Block<ErrorElementOptions> {
   constructor(props: ErrorElementOptions) {
-    super();
+    super({
+      ...props,
+      handlers: [(element) => setLink(element, '/', '.link')],
+    });
     this.props = props;
   }
 

@@ -4,12 +4,14 @@ import Handlebars from 'handlebars';
 import tmpl from './aside.tmpl';
 import Block from '../../common/block';
 import AsideOptions from './aside.options';
+import { setLink } from '../../scripts/link';
 
-export default class Aside extends Block {
-  public template: string = tmpl;
-
+export default class Aside extends Block<AsideOptions> {
   constructor(props: AsideOptions) {
-    super();
+    super({
+      ...props,
+      handlers: [(element) => setLink(element, '/', '.aside__list-btn')],
+    });
     this.props = props;
   }
 

@@ -5,11 +5,11 @@ import tmpl from './profile.tmpl';
 import Block from '../../common/block';
 import ProfileOptions from './profile.options';
 
-export default class Profile extends Block {
+export default class Profile extends Block<ProfileOptions> {
   public template: string = tmpl;
 
   constructor(props: ProfileOptions) {
-    super();
+    super(props);
     this.props = props;
   }
 
