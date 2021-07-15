@@ -1,13 +1,15 @@
 import { isEqual, render } from './utils';
+import Block from './block';
+import { PropsType } from './props-type';
 
 export default class Route {
-  private pathname: any;
+  private pathname: string;
 
-  private blockClass: any;
+  private blockClass: string;
 
-  private block: any;
+  private block: Block<PropsType>;
 
-  private props: any;
+  private props: PropsType;
 
   constructor(pathname, view, props) {
     this.pathname = pathname;
@@ -35,9 +37,7 @@ export default class Route {
 
   public render() {
     if (!this.block) {
-      // eslint-disable-next-line new-cap
       this.block = new this.blockClass();
-      console.log('route block', this.block);
       render(this.props.rootQuery, this.block);
       return;
     }

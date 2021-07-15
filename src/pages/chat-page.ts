@@ -8,9 +8,11 @@ import PageMain from '../components/pageMain';
 import Block from '../common/block';
 import { PropsType } from '../common/props-type';
 import { setChatItemClick, setChatSendClick } from '../scripts/setChatClick';
+import { ChatController } from '../controllers/chat.-controller';
 
 export default class ChatPage extends Block<PropsType> {
   constructor() {
+    new ChatController().getAllChats();
     super({
       components: new PageMain(
         {
@@ -43,7 +45,7 @@ export default class ChatPage extends Block<PropsType> {
               }).render(),
             }).render(),
             new ChatBoardWrapper({
-              id: localStorage.getItem('currentChatId') ?? 'sd1',
+              id: localStorage.getItem('currentChatId') ?? '',
               messagesContent: [
                 new ChatMessage({
                   text: 'blablalba',

@@ -87,7 +87,7 @@ export default class ProfilePage extends Block<PropsType> {
                 inputType: 'password',
                 inputName: 'newPassword',
                 inputPlaceholder: 'Пароль',
-                inputValue: 'ssssss',
+                inputValue: 'qwe!23Qwe',
                 validation: ValidationType.password,
               }).render(),
             ].join(''),
