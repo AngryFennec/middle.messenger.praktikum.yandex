@@ -1,3 +1,5 @@
+import { WEB_SOCKET_PATH } from './constants';
+
 export default class WebSocketApi {
   socket: WebSocket;
 
@@ -19,7 +21,7 @@ export default class WebSocketApi {
     const chatToken = localStorage.getItem('token');
     const userId = localStorage.getItem('userId');
 
-    this.socket = new WebSocket(`wss://ya-praktikum.tech/ws/chats/${userId}/${chatId}/${chatToken}`);
+    this.socket = new WebSocket(`${WEB_SOCKET_PATH}${userId}/${chatId}/${chatToken}`);
 
     this.init(this.socket);
   }

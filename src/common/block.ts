@@ -65,8 +65,6 @@ export default class Block<T extends PropsType> {
 
   private blockComponentDidUpdate(oldProps, newProps) {
     const response = this.componentDidUpdate(oldProps, newProps);
-    console.log(oldProps);
-    console.log(newProps);
     if (!response) {
       return;
     }
@@ -99,8 +97,6 @@ export default class Block<T extends PropsType> {
     const { handlers } = this.props;
     if (handlers) {
       handlers.forEach((item) => {
-        console.log(item);
-
         item(this.blockElement);
       });
     }

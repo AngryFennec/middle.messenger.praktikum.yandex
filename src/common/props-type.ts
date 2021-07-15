@@ -1,3 +1,1 @@
-export type PropsType = {
-  [key:string]: any;
-};
+export type PropsType = Record<string, any>;

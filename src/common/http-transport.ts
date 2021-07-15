@@ -1,3 +1,5 @@
+import { BASE_URL } from './constants';
+
 const METHODS = {
   GET: 'GET',
   POST: 'POST',
@@ -10,7 +12,6 @@ interface OptionsType {
   timeout?: number;
   headers?: any;
   data?: any;
-
 }
 
 function queryStringify(data: string): string {
@@ -33,7 +34,17 @@ function queryStringify(data: string): string {
 }
 
 export default class HTTPTransport {
-  private base = 'https://ya-praktikum.tech/api/v2';
+  private static instance: any;
+
+  private base: string;
+
+  constructor(baseUrl: string = BASE_URL) {
+    if (HTTPTransport.instance) {
+      return HTTPTransport.instance;
+    }
+    HTTPTransport.instance = this;
+    this.base = baseUrl;
+  }
 
   public get(url: string, options: OptionsType = {}): Promise<any> {
     return this.request(`${this.base}${url}${queryStringify(options.data)}`,
@@ -54,7 +65,7 @@ export default class HTTPTransport {
   }
 
   private request(url, options: OptionsType = {}, timeout = 5000): Promise<any> {
-    const { headers = {}, method, data } = options;
+    const { headers = { 'content-type': 'application/json' }, method, data } = options;
 
     return new Promise((resolve, reject) => {
       if (!method) {
@@ -74,17 +85,15 @@ export default class HTTPTransport {
         xhr.setRequestHeader(key, headers[key]);
       });
 
-      xhr.onload = () => {
-        resolve(xhr);
-      };
-
       xhr.withCredentials = true;
       xhr.onabort = reject;
       xhr.onerror = reject;
 
       xhr.timeout = timeout;
       xhr.ontimeout = reject;
-
+      xhr.onload = () => {
+        resolve(xhr);
+      };
       if (isGet || !data) {
         xhr.send();
       } else {

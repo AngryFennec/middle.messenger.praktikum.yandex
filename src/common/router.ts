@@ -41,13 +41,9 @@ export default class Router {
   }
 
   private onRoute(pathname) {
-    const route = this.getRoute(pathname);
-    if (!route) {
-      return;
-    }
+    const route = this.getRoute(pathname) ?? this.getRoute('/404');
 
     if (this.currentRoute && this.currentRoute !== route) {
-      // @ts-ignore
       this.currentRoute.leave();
     }
 

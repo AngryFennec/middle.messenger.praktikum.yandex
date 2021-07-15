@@ -1,6 +1,7 @@
 {
   "name": "middle.messenger.praktikum.yandex",
   "version": "1.0.0",
+  "main": "src/index.ts",
   "description": "---",
   "devDependencies": {
     "@babel/cli": "^7.12.1",
