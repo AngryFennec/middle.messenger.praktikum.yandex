@@ -1,9 +1,3 @@
-# Для проверяющего
-Привет, ревьюер!
-Надеюсь, мой код тебя не сильно огорчит - я потратила много времени, чтобы написать его.
-Также, было бы здорово, если бы ты прояснил для меня, почему валятся тесты реквеста. 
-Я пофиксила несколько моментов и добралась до проверки на ts, дальше моя магия перестала действовать.
-
 ## Проект "Мессенджер"
 
 Макеты: https://www.figma.com/file/QQo53v0bx8aPmwekENUe0s/sprint_1?node-id=26%3A0
@@ -20,7 +14,7 @@ https://github.com/AngryFennec/middle.messenger.praktikum.yandex/pull/1
 * обертка для Fetch (не используется в заданиях спринта)
 * валидация форм
 
-Реквест 2 спринта: https://github.com/AngryFennec/middle.messenger.praktikum.yandex/pull/4
+Реквест 3 спринта: https://github.com/AngryFennec/middle.messenger.praktikum.yandex/pull/6
 
 Для запуска выполнить команды:
 * npm install

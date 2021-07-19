@@ -5,11 +5,9 @@ import tmpl from './chatItem.tmpl';
 import Block from '../../common/block';
 import ChatItemOptions from './chatItem.options';
 
-export default class ChatItem extends Block {
-  public template: string = tmpl;
-
+export default class ChatItem extends Block<ChatItemOptions> {
   constructor(props: ChatItemOptions) {
-    super();
+    super(props);
     this.props = props;
   }
 

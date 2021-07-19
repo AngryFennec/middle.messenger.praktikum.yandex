@@ -1,4 +1,4 @@
-export default `<li class="chat__item {{#if isActive}}chat__item--active{{/if}}">
+export default `<li class="chat__item data-chat="{{id}}">
 <button class="chat__item-btn" type=button">
     <div class="chat__item-img"></div>
     <div class="chat__item-wrapper">

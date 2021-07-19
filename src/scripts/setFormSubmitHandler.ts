@@ -1,4 +1,9 @@
 import { ValidationType } from '../components/input/input.types';
+import Router from '../common/router';
+import AuthAPI from '../api/auth-api';
+import UserAPI from '../api/user-api';
+import AuthController from '../controllers/auth-controller';
+import UserController from '../controllers/user-controller';
 
 const EMAIL_REGEXP: RegExp = /^[^\s@]+@[^\s@]+$/;
 const PHONE_REGEXP: RegExp = /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/g;
@@ -48,17 +53,18 @@ export function setFormValidationHandler(form: HTMLFormElement): void {
   formTextInputs.forEach((input) => input.addEventListener('blur', removeInvalid));
 }
 
-export function setFormSubmitHandler(form: HTMLFormElement, link: string): void {
+export function convertFormData(formData: FormData): JSON {
+  const object:Record<string, any> = {};
+  formData.forEach((value, key) => {
+    object[key] = value;
+  });
+  return JSON.parse(JSON.stringify(object));
+}
+
+export function setFormSubmitHandler(form: HTMLFormElement, link: string, type?: string): void {
   form.addEventListener('submit', (evt) => {
     evt.preventDefault();
     const formData: FormData = new FormData(form);
-
-    // так как formData выводится пустой, сделан вывод поэлементно
-    // eslint-disable-next-line no-restricted-syntax
-    for (const entry of Object(formData).entries()) {
-      // eslint-disable-next-line no-console
-      console.log(entry);
-    }
 
     const formTextInputs = Array.from(form.querySelectorAll('input[type=text], input[type=password], input[type=tel], input[type=email]'));
     let isAnyInvalid = false;
@@ -69,7 +75,19 @@ export function setFormSubmitHandler(form: HTMLFormElement, link: string): void 
     });
 
     if (link && !isAnyInvalid) {
-      window.location.href = link;
+      if (type === 'signin') {
+        new AuthController().signUserIn(convertFormData(formData), link);
+        return;
+      }
+      if (type === 'signup') {
+        new AuthController().signUserUp(convertFormData(formData), link);
+        return;
+      }
+    }
+
+    if (!isAnyInvalid && type === 'profile') {
+      const converted = convertFormData(formData);
+      new UserController().changeUserProfileFields(converted, formData, form.querySelector('#avatarField'));
     }
   });
 }

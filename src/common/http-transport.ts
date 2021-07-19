@@ -1,3 +1,5 @@
+import { BASE_URL } from './constants';
+
 const METHODS = {
   GET: 'GET',
   POST: 'POST',
@@ -10,10 +12,12 @@ interface OptionsType {
   timeout?: number;
   headers?: any;
   data?: any;
-
 }
 
 function queryStringify(data: string): string {
+  if (!data) {
+    return '';
+  }
   const arr = Object.entries(data);
   const res = [];
   arr.forEach((item: [string, any]) => {
@@ -30,26 +34,38 @@ function queryStringify(data: string): string {
 }
 
 export default class HTTPTransport {
-  public get(url: string, options: OptionsType = {}): void {
-    this.request(`${url}${queryStringify(options.data)}`,
+  private static instance: any;
+
+  private base: string;
+
+  constructor(baseUrl: string = BASE_URL) {
+    if (HTTPTransport.instance) {
+      return HTTPTransport.instance;
+    }
+    HTTPTransport.instance = this;
+    this.base = baseUrl;
+  }
+
+  public get(url: string, options: OptionsType = {}): Promise<any> {
+    return this.request(`${this.base}${url}${queryStringify(options.data)}`,
       { ...options, method: METHODS.GET },
       options.timeout);
   }
 
-  public post(url: string, options: OptionsType = {}): void {
-    this.request(url, { ...options, method: METHODS.POST }, options.timeout);
+  public post(url: string, options: OptionsType = {}): Promise<any> {
+    return this.request(`${this.base}${url}`, { ...options, method: METHODS.POST }, options.timeout);
   }
 
-  public put(url: string, options: OptionsType = {}): void {
-    this.request(url, { ...options, method: METHODS.PUT }, options.timeout);
+  public put(url: string, options: OptionsType = {}): Promise<any> {
+    return this.request(`${this.base}${url}`, { ...options, method: METHODS.PUT }, options.timeout);
   }
 
-  public delete(url: string, options: OptionsType = {}) {
-    this.request(url, { ...options, method: METHODS.DELETE }, options.timeout);
+  public delete(url: string, options: OptionsType = {}): Promise<any> {
+    return this.request(`${this.base}${url}`, { ...options, method: METHODS.DELETE }, options.timeout);
   }
 
-  private request = (url, options: OptionsType = {}, timeout = 5000) => {
-    const { headers = {}, method, data } = options;
+  private request(url, options: OptionsType = {}, timeout = 5000): Promise<any> {
+    const { headers = { 'content-type': 'application/json' }, method, data } = options;
 
     return new Promise((resolve, reject) => {
       if (!method) {
@@ -65,26 +81,24 @@ export default class HTTPTransport {
         method,
         url,
       );
-
       Object.keys(headers).forEach((key) => {
         xhr.setRequestHeader(key, headers[key]);
       });
 
-      xhr.onload = () => {
-        resolve(xhr);
-      };
-
+      xhr.withCredentials = true;
       xhr.onabort = reject;
       xhr.onerror = reject;
 
       xhr.timeout = timeout;
       xhr.ontimeout = reject;
-
+      xhr.onload = () => {
+        resolve(xhr);
+      };
       if (isGet || !data) {
         xhr.send();
       } else {
         xhr.send(data);
       }
     });
-  };
+  }
 }

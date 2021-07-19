@@ -5,11 +5,9 @@ import tmpl from './input.tmpl';
 import Block from '../../common/block';
 import InputOptions from './input.options';
 
-export default class Input extends Block {
-  public template: string = tmpl;
-
+export default class Input extends Block<InputOptions> {
   constructor(props: InputOptions) {
-    super();
+    super(props);
     this.props = props;
   }
 

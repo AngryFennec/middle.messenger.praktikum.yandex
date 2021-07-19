@@ -1,6 +1,7 @@
 import EventBus from './event-bus';
+import { PropsType } from './props-type';
 
-export default class Block {
+export default class Block<T extends PropsType> {
   static EVENTS = {
     INIT: 'init',
     FLOW_CDM: 'flow:component-did-mount',
@@ -10,11 +11,11 @@ export default class Block {
 
   private blockElement = null;
 
-  private readonly meta = null;
+  private meta = null;
 
-  protected props: any;
+  protected props: T;
 
-  private eventBus: EventBus;
+  private eventBus: () => EventBus;
 
   /** JSDoc
    * @param {string} tagName
@@ -22,13 +23,19 @@ export default class Block {
    *
    * @returns {void}
    */
-  constructor(tagName = 'div', props = {}) {
+  constructor(props: T, tagName = 'div') {
+    const eventBus = new EventBus();
     this.meta = {
       tagName,
       props,
     };
 
     this.props = this.makePropsProxy(props);
+
+    this.eventBus = () => eventBus;
+
+    this.registerEvents(eventBus);
+    eventBus.emit(Block.EVENTS.INIT);
   }
 
   private registerEvents(eventBus) {
@@ -44,18 +51,14 @@ export default class Block {
   }
 
   public init() {
-    const eventBus = new EventBus();
-    this.eventBus = eventBus;
-
-    this.registerEvents(eventBus);
-    eventBus.emit(Block.EVENTS.INIT);
     this.createResources();
-    this.eventBus.emit(Block.EVENTS.FLOW_CDM);
+    this.eventBus().emit(Block.EVENTS.FLOW_CDM);
   }
 
   private blockComponentDidMount() {
     this.componentDidMount();
-    this.eventBus.emit(Block.EVENTS.FLOW_RENDER);
+    this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
+    this.setHandlers();
   }
 
   componentDidMount() {}
@@ -90,6 +93,15 @@ export default class Block {
     this.blockElement.innerHTML = block;
   }
 
+  private setHandlers() {
+    const { handlers } = this.props;
+    if (handlers) {
+      handlers.forEach((item) => {
+        item(this.blockElement);
+      });
+    }
+  }
+
   public render() {}
 
   getContent() {
@@ -112,7 +124,7 @@ export default class Block {
 
         // Запускаем обновление компоненты
         // Плохой cloneDeep, в след итерации нужно заставлять добавлять cloneDeep им самим
-        self.eventBus.emit(Block.EVENTS.FLOW_CDU, { ...target }, target);
+        self.eventBus().emit(Block.EVENTS.FLOW_CDU, { ...target }, target);
         return true;
       },
       deleteProperty() {

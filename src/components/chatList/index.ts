@@ -5,11 +5,9 @@ import tmpl from './chatList.tmpl';
 import Block from '../../common/block';
 import ChatListOptions from './chatList.options';
 
-export default class ChatList extends Block {
-  public template: string = tmpl;
-
+export default class ChatList extends Block<ChatListOptions> {
   constructor(props: ChatListOptions) {
-    super();
+    super(props);
     this.props = props;
   }
 
