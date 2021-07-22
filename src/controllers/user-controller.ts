@@ -1,4 +1,5 @@
 import UserAPI from '../api/user-api';
+import { UserProfileData } from './controllers.types';
 
 export default class UserController {
   public getUserDatById() {
@@ -19,7 +20,7 @@ export default class UserController {
     }).catch((err) => console.log(err));
   }
 
-  public changeUserProfileFields(data: JSON, formData, input) {
+  public changeUserProfileFields(data: UserProfileData, formData, input) {
     if (data.newPassword && data.newPassword !== JSON.parse(localStorage.getItem('userData')).password) {
       new UserAPI().changeUserPassword({
         oldPassword: JSON.parse(localStorage.getItem('userData')).password ?? '',

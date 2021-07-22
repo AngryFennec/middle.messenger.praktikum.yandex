@@ -32,6 +32,7 @@ router
 describe('Check router', () => {
   it('Switch page', () => {
     router.go('/404');
+    // @ts-ignore
     expect(router.currentRoute.pathname).to.equal('/404');
   });
 });

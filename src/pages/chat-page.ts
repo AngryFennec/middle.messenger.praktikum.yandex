@@ -8,7 +8,7 @@ import PageMain from '../components/pageMain';
 import Block from '../common/block';
 import { PropsType } from '../common/props-type';
 import { setChatItemClick, setChatSendClick } from '../scripts/setChatClick';
-import { ChatController } from '../controllers/chat.-controller';
+import { ChatController } from '../controllers/chat-controller';
 
 export default class ChatPage extends Block<PropsType> {
   constructor() {

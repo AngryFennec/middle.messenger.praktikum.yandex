@@ -37,9 +37,10 @@ export default class Route {
 
   public render() {
     if (!this.block) {
+      // @ts-ignore
+      // eslint-disable-next-line new-cap
       this.block = new this.blockClass();
       render(this.props.rootQuery, this.block);
-      return;
     }
 
     this.block.show();

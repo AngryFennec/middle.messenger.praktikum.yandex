@@ -5,6 +5,7 @@ import { ValidationType } from '../components/input/input.types';
 import Block from '../common/block';
 import { PropsType } from '../common/props-type';
 import { initLogin } from '../scripts/login';
+import { setLink } from '../scripts/link';
 
 export default class Login extends Block<PropsType> {
   constructor() {
@@ -19,7 +20,7 @@ export default class Login extends Block<PropsType> {
           }).render(),
           new Button({
             buttonRoute: '/registration',
-            buttonClass: 'button--transparent auth__btn',
+            buttonClass: 'button--transparent auth__btn auth__btn--register',
             buttonText: 'Зарегистрироваться',
             link: true,
           }).render(),
@@ -45,7 +46,7 @@ export default class Login extends Block<PropsType> {
           }).render(),
         ],
       }),
-      handlers: [initLogin],
+      handlers: [initLogin, (element) => setLink(element, '/registration', '.auth__btn--register')],
     },
     'div');
   }
