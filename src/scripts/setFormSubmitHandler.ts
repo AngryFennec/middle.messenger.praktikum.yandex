@@ -1,9 +1,7 @@
 import { ValidationType } from '../components/input/input.types';
-import Router from '../common/router';
-import AuthAPI from '../api/auth-api';
-import UserAPI from '../api/user-api';
 import AuthController from '../controllers/auth-controller';
 import UserController from '../controllers/user-controller';
+import { UserProfileData } from '../controllers/controllers.types';
 
 const EMAIL_REGEXP: RegExp = /^[^\s@]+@[^\s@]+$/;
 const PHONE_REGEXP: RegExp = /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/g;
@@ -87,7 +85,7 @@ export function setFormSubmitHandler(form: HTMLFormElement, link: string, type?:
 
     if (!isAnyInvalid && type === 'profile') {
       const converted = convertFormData(formData);
-      new UserController().changeUserProfileFields(converted, formData, form.querySelector('#avatarField'));
+      new UserController().changeUserProfileFields(converted as UserProfileData, formData, form.querySelector('#avatarField'));
     }
   });
 }

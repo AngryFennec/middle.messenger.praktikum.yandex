@@ -37,9 +37,9 @@ export default class Route {
 
   public render() {
     if (!this.block) {
+      // @ts-ignore
       this.block = new this.blockClass();
       render(this.props.rootQuery, this.block);
-      return;
     }
 
     this.block.show();

@@ -5,7 +5,3 @@ export function initLogin(element): void {
   setFormSubmitHandler($loginForm, '/chat', 'signin');
   setFormValidationHandler($loginForm);
 }
-
-export default {
-  initLogin,
-};

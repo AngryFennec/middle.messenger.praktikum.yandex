@@ -28,7 +28,6 @@ export default class Router {
     const route = new Route(pathname, block, { rootQuery: this.rootQuery });
 
     this.routes.push(route);
-
     return this;
   }
 
@@ -42,8 +41,8 @@ export default class Router {
 
   private onRoute(pathname) {
     const route = this.getRoute(pathname) ?? this.getRoute('/404');
-
     if (this.currentRoute && this.currentRoute !== route) {
+      // @ts-ignore
       this.currentRoute.leave();
     }
 
@@ -57,6 +56,7 @@ export default class Router {
   }
 
   public back() {
+    console.log(this.history);
     this.history.back();
   }
 

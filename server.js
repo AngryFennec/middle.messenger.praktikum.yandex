@@ -6,6 +6,10 @@ const DIST_PATH = '/dist';
 
 app.use(express.static(`${__dirname}${DIST_PATH}`));
 
-app.listen(PORT, function () {
+app.get('/*', (req, res) => {
+  res.sendFile(`${__dirname}${DIST_PATH}/index.html`);
+});
+
+app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}!`);
 });

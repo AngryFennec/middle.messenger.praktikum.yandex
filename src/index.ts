@@ -10,10 +10,10 @@ const router = new Router('#root');
 
 router
   .use('/', Login)
-  .use('/index.html', Login)
   .use('/404', Page404)
   .use('/500', Page500)
   .use('/registration', RegistrationPage)
   .use('/profile', ProfilePage)
   .use('/chat', ChatPage)
+  .use('/index.html', Login)
   .start();

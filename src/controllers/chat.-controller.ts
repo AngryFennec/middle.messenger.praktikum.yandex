@@ -1,4 +1,3 @@
-import HTTPTransport from '../common/http-transport';
 import ChatAPI from '../api/chat-api';
 
 export class ChatController {

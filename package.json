@@ -33,15 +33,18 @@
     "stylelint": "^13.13.1",
     "ts-node": "10.0.0",
     "typescript": "^4.3.2",
-    "undefined": "^0.1.0"
+    "undefined": "^0.1.0",
+    "webpack": "^5.45.1",
+    "webpack-cli": "^4.7.2"
   },
   "scripts": {
-    "dev": "npm run clear && parcel ./static/index.html  --port 3000",
-    "build": "npm run clear && parcel build ./static/*.html --no-source-maps --no-cache --public-url ./",
+    "dev": "webpack  --mode=development --progress  && webpack serve",
     "clear": "rm -rf dist .cache",
-    "start": "npm run clear && parcel build ./static/index.html --no-source-maps --no-cache --public-url ./ && node ./server.js",
+    "start": "npm run clear && webpack --mode=production --node-env=production && node ./server.js",
     "eslint": "eslint src/",
-    "test": "./node_modules/.bin/mocha --require ignore-styles -r jsdom-global/register"
+    "test": "./node_modules/.bin/mocha --require ignore-styles -r jsdom-global/register",
+    "build": "webpack --mode=production --node-env=production",
+    "precommit:hook": "npm run eslint && npm run test"
   },
   "repository": {
     "type": "git",
@@ -52,5 +55,39 @@
   "bugs": {
     "url": "https://github.com/AngryFennec/middle.messenger.praktikum.yandex/issues"
   },
-  "homepage": "https://github.com/AngryFennec/middle.messenger.praktikum.yandex#readme"
+  "homepage": "https://github.com/AngryFennec/middle.messenger.praktikum.yandex#readme",
+  "staticFiles": {
+    "staticPath": "static",
+    "watcherGlob": "**"
+  },
+  "customDistStructure": {
+    "config": {
+      ".css": "css",
+      ".js": "js"
+    },
+    "options": {
+      "development": true
+    }
+  },
+  "dependencies": {
+    "clean-webpack-plugin": "4.0.0-alpha.0",
+    "copy-webpack-plugin": "9.0.1",
+    "css-loader": "6.2.0",
+    "cssnano": "5.0.7",
+    "file-loader": "6.2.0",
+    "html-webpack-plugin": "5.3.2",
+    "mini-css-extract-plugin": "2.1.0",
+    "node-sass": "6.0.1",
+    "postcss": "8.3.6",
+    "postcss-cssnext": "3.1.0",
+    "postcss-import": "14.0.2",
+    "postcss-loader": "6.1.1",
+    "sass-loader": "12.1.0",
+    "style-loader": "3.2.1",
+    "sugarss": "4.0.1",
+    "ts-loader": "9.2.3",
+    "tsconfig-paths-webpack-plugin": "3.5.1",
+    "webpack-dev-server": "3.11.2",
+    "webpack-merge": "5.8.0"
+  }
 }
