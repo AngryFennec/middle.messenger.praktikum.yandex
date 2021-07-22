@@ -71,6 +71,11 @@
       "development": true
     }
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run validate"
+    }
+  },
   "dependencies": {
     "clean-webpack-plugin": "4.0.0-alpha.0",
     "copy-webpack-plugin": "9.0.1",
