@@ -65,7 +65,13 @@ export class ChatController {
     }).catch((err) => console.log(err));
   }
 
-  public getAllChatUsers(id: string, offset?: number, limit?: number, name?: string, email?: string) {
+  public getAllChatUsers(
+    id: string,
+    offset?: number,
+    limit?: number,
+    name?: string,
+    email?: string,
+  ) {
     new ChatAPI().getChatUsers({
       id, offset, limit, name, email,
     }).then((result: any) => {
