@@ -1,5 +1,4 @@
 FROM node:14.1
-
 RUN npm install express
 WORKDIR /var/www
 COPY ./server.js server.js
