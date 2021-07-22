@@ -45,7 +45,8 @@
     "eslint": "eslint src/",
     "test": "./node_modules/.bin/mocha --require ignore-styles -r jsdom-global/register",
     "build": "webpack --mode=production --node-env=production",
-    "precommit": "npm run eslint && npm run test"
+    "validate": "npm-run-all --parallel test eslint",
+    "precommit": "validate"
   },
   "repository": {
     "type": "git",
