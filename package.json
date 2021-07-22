@@ -27,16 +27,14 @@
     "jsdom": "16.6.0",
     "jsdom-global": "3.0.2",
     "mocha": "^9.0.2",
-    "parcel-bundler": "1.12.5",
-    "parcel-plugin-custom-dist-structure": "1.1.17",
-    "parcel-plugin-static-files-copy": "2.6.0",
     "sass": "1.32.8",
     "stylelint": "^13.13.1",
     "ts-node": "10.0.0",
     "typescript": "^4.3.2",
     "undefined": "^0.1.0",
     "webpack": "^5.45.1",
-    "webpack-cli": "^4.7.2"
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "3.11.2"
   },
   "scripts": {
     "dev": "webpack  --mode=development --progress  && webpack serve",
@@ -96,9 +94,7 @@
     "style-loader": "3.2.1",
     "sugarss": "4.0.1",
     "ts-loader": "9.2.3",
-    "tsconfig-paths-webpack-plugin": "3.5.1",
-    "webpack-dev-server": "3.11.2",
-    "webpack-merge": "5.8.0"
+    "tsconfig-paths-webpack-plugin": "3.5.1"
   },
   "standard": {
     "globals": [
